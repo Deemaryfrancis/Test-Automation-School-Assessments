@@ -22,7 +22,7 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
-           newman run Project/SendBlueIV_Collection.json -e Project/TAS_postman_environment.json --reporters cli,allure
+           newman run 3B_API/Project/SendBlueIV_Collection.json -e 3B_API/Project/TAS_postman_environment.json --reporters cli,allure
            echo "API Postman tests run."
           
       - name: Get  Allure history
