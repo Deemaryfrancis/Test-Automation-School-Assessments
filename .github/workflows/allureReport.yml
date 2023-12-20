@@ -36,7 +36,7 @@ jobs:
 
         
       - name: TAS Allure report action
-        id: TAS build
+        id: TAS_build
         uses: simple-elf/allure-report-action@master
         if: always()
         continue-on-error: true
