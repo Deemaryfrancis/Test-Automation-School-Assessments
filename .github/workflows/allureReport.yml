@@ -22,7 +22,7 @@ jobs:
         if: always()
         continue-on-error: true
         run: |
-           newman run TAS_postman_collection.json -e TAS_postman_environment.json --reporters cli,allure
+           newman run Project/SendBlueIV_Collection.json -e TAS_postman_environment.json --reporters cli,allure
            echo "Admin API Postman tests run."
 
            newman run Postman-Collections/Retail-API-Bank78.json -e ADMIN_API_COLLECTION/BANK78_ENV_postman_environment.json --reporters cli,allure
