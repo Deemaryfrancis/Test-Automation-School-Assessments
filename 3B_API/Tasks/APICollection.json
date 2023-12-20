@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "14eb7047-e233-48df-9f57-c62a091083ef",
-		"name": "APICollection",
+		"_postman_id": "e5f0e33a-b184-41ee-8c30-676080dc5e74",
+		"name": "APICollection-QA",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -14,24 +14,20 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "42bb15c4-0e76-43f0-b81a-876ae5b50ec2",
+								"id": "d5388871-7265-456a-bb84-487fb05efff9",
 								"exec": [
-									"",
-									"pm.test(\"Status code Should be 404\", function () {",
-									"    pm.response.to.have.status(404);",
-									"});",
-									"",
-									"pm.test(\"Status code name should have an 'Not found'string\", function () {",
-									"    pm.response.to.have.status(\"Not Found\");",
-									"});",
-									"",
-									""
+									"pm.test(\"Status Code is 200\", function (){\r",
+									"    pm.response.to.have.status(200)\r",
+									"})\r",
+									"pm.test(\"Status has string OK\", function (){\r",
+									"    pm.response.to.have.status(\"OK\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "faceb05e-89b3-4a98-8cb6-bbc37d468779",
+					"id": "ebf1ccec-5283-4aa7-a9a9-974741b502bb",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -42,12 +38,53 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{baseUrl}}/todo"
+						"url": {
+							"raw": "https://demo.fusio-project.org/index.php",
+							"protocol": "https",
+							"host": [
+								"demo",
+								"fusio-project",
+								"org"
+							],
+							"path": [
+								"index.php"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						}
 					},
 					"response": []
 				}
 			],
-			"id": "047f0574-cc05-4f88-b116-cccc982d03ad"
+			"id": "9e21a92f-ac6e-430f-a9f7-8480283b5755",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b9a47e7a-aa52-4750-b033-27d13c7b7352",
+						"type": "text/javascript",
+						"exec": [
+							"postman.setNextRequest(\"Get Books - valid book type\")"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "768bbd24-4691-4839-b88e-e5214808c937",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Get All Entries",
@@ -58,41 +95,52 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e3b26275-cabd-47b9-a0d5-ce7bce7b09e9",
+								"id": "3631fe3a-9bcc-4980-b9b4-cfb87b66784c",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"var JsonData = pm.response.json();\r",
-									"pm.test(\"Response to have the title-Fusio\", function () {\r",
-									"    pm.expect(JsonData.title).to.include(\"Fusio\");\r",
-									"});\r",
-									"pm.test(\"Response to have the apiVersion = 6.1.1.0\", function () {\r",
-									"    pm.expect(JsonData.apiVersion).to.include(\"6.1.1.0\");\r",
-									"});\r",
-									""
+									"pm.test(\"Status Code is 200\", function (){\r",
+									"    pm.response.to.have.status(200)\r",
+									"})\r",
+									"pm.test(\"Status has string OK\", function (){\r",
+									"    pm.response.to.have.status(\"OK\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "5b3e9953-4e72-441d-ab42-e40529dc6473",
+					"id": "6170850d-5dd5-4c03-8f23-59c56f88136c",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
 						"header": [],
-						"url": "https://demo.fusio-project.org/index.php/",
+						"url": {
+							"raw": "https://demo.fusio-project.org/index.php/",
+							"protocol": "https",
+							"host": [
+								"demo",
+								"fusio-project",
+								"org"
+							],
+							"path": [
+								"index.php",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						},
 						"description": "https://demo.fusio-project.org/index.php/"
 					},
 					"response": []
 				}
 			],
-			"id": "bca549a1-fedc-4f22-9502-d54776d92fc0"
+			"id": "24ed14f2-1279-4d1d-bb9e-578eed1974ac"
 		},
 		{
 			"name": "Get entry per ID",
@@ -103,42 +151,45 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2c131183-ffb1-4174-b2ba-bcaea15d9165",
+								"id": "3654388d-27c5-4976-878f-1490a6f0be61",
 								"exec": [
-									"pm.test(\"Status code Should be 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name should have an 'OK'string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"\r",
-									""
+									"pm.test(\"Staus code is 200\", function(){\r",
+									"    pm.response.to.have.status(200)\r",
+									"})\r",
+									"pm.test(\"Staus has string OK\", function(){\r",
+									"    pm.response.to.have.status(\"OK\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "1c3f2919-f049-4e6c-9919-0e6e67593015",
+					"id": "31fdd1ba-7d14-4417-b9b7-032655daebd9",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "{{baseUrl}}/todo/?todo_id=2",
+							"raw": "https://demo.fusio-project.org/index.php?rel=documentation",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"demo",
+								"fusio-project",
+								"org"
 							],
 							"path": [
-								"todo",
-								""
+								"index.php"
 							],
 							"query": [
 								{
-									"key": "todo_id",
-									"value": "2"
+									"key": "rel",
+									"value": "documentation"
 								}
 							]
 						},
@@ -148,27 +199,7 @@
 				},
 				{
 					"name": "Get entry per ID - Invalid ID(params not using TODO ID)",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "78d14f86-9476-4307-9311-8ca639ba758a",
-								"exec": [
-									"pm.test(\"Status code Should be 400\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name should have an 'Bad Request'string\", function () {\r",
-									"    pm.response.to.have.status(\"Bad Request\");\r",
-									"});\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "3ec4c1f7-e95b-4254-b60b-5f274643469b",
+					"id": "112989f9-9c7a-4163-8ba9-7ec35e38f3b4",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -176,18 +207,21 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/todo/?todo_id=2",
+							"raw": "https://demo.fusio-project.org/",
+							"protocol": "https",
 							"host": [
-								"{{baseUrl}}"
+								"demo",
+								"fusio-project",
+								"org"
 							],
 							"path": [
-								"todo",
 								""
 							],
 							"query": [
 								{
-									"key": "todo_id",
-									"value": "2"
+									"key": "",
+									"value": "",
+									"disabled": true
 								}
 							]
 						},
@@ -196,72 +230,37 @@
 					"response": []
 				}
 			],
-			"id": "4ee7faf5-f23d-4145-9afc-2c73b5883fd6"
+			"id": "e6f2d1e5-eb20-4439-b9a4-f3a7fa1d053d"
 		},
 		{
 			"name": "Get Books",
 			"item": [
-				{
-					"name": "Get All Books",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "6e7cb56d-a194-4ab2-9756-7dcf58d8369d",
-								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "d67ce297-af70-481b-b7ba-341c731667f1",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{base_url}}/books?type=fiction",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"books"
-							],
-							"query": [
-								{
-									"key": "type",
-									"value": "fiction"
-								}
-							]
-						}
-					},
-					"response": []
-				},
 				{
 					"name": "Get Books - valid book type",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "6e7cb56d-a194-4ab2-9756-7dcf58d8369d",
+								"id": "decf97ed-f69d-49e9-8340-edef94746d0c",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"var JsonData = pm.response.json();\r",
-									"console.log(JsonData[0].id)\r",
-									"pm.environment.set(\"bookId\",JsonData[0].id )"
+									"pm.test(\"Status Code is 200\", function (){\r",
+									"    pm.response.to.have.status(200)\r",
+									"})\r",
+									"pm.test(\"Status has string OK\", function (){\r",
+									"    pm.response.to.have.status(\"OK\")\r",
+									"})\r",
+									"var JsonData = pm.response.json()\r",
+									"pm.test(\"Verify the name of a non-fiction book - Untamed\", function(){\r",
+									"    pm.expect(JsonData[1].name).to.eql(\"Untamed\")\r",
+									"} )\r",
+									"\r",
+									"pm.collectionVariables.set(\"ID\", JsonData[0].id)"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "ddfab7da-03e1-4122-aa07-e58a869ce099",
+					"id": "5d98d8ae-26a4-4fa3-9535-e403658bc2fe",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -269,9 +268,9 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/books?type=fiction",
+							"raw": "{{baseUrl}}/books",
 							"host": [
-								"{{base_url}}"
+								"{{baseUrl}}"
 							],
 							"path": [
 								"books"
@@ -279,7 +278,14 @@
 							"query": [
 								{
 									"key": "type",
-									"value": "fiction"
+									"value": "non-fiction",
+									"disabled": true
+								},
+								{
+									"key": "name ",
+									"value": "The Russian",
+									"type": "text",
+									"disabled": true
 								}
 							]
 						}
@@ -292,21 +298,20 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "08ca8fd6-e910-47db-8fc2-49f0dd27405f",
+								"id": "d8ac4758-6370-493a-869b-98e1a42f25b3",
 								"exec": [
-									"pm.test(\"Status code is 400\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									"pm.test(\"Status code name has string called 'Bad Request'\", function () {\r",
-									"    pm.response.to.have.status(\"Bad Request\");\r",
-									"});\r",
-									""
+									"pm.test(\"Status Code is 400\", function (){\r",
+									"    pm.response.to.have.status(400)\r",
+									"})\r",
+									"pm.test(\"Status has string Bad Request\", function (){\r",
+									"    pm.response.to.have.status(\"Bad Request\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "890324be-2e5e-44d3-84ef-d713924c4995",
+					"id": "724ec6f6-8f6c-497e-b638-1627581422a2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -314,9 +319,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/books?type=romance",
+							"raw": "https://simple-books-api.glitch.me/books?type=type",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"simple-books-api",
+								"glitch",
+								"me"
 							],
 							"path": [
 								"books"
@@ -324,8 +332,7 @@
 							"query": [
 								{
 									"key": "type",
-									"value": "romance",
-									"type": "text"
+									"value": "type"
 								}
 							]
 						}
@@ -333,11 +340,222 @@
 					"response": []
 				}
 			],
-			"id": "addcbab6-e9d9-4514-88e5-4c1697b25c36"
+			"id": "dfb90fd3-159d-4726-b925-1c76cc7ac55f",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c8e56d32-87ef-4a0c-ad20-0205069f660a",
+						"type": "text/javascript",
+						"exec": [
+							"postman.setNextRequest(\"Place a book order - using valid book ID\")"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d026982a-e589-4d9a-972f-bd386b86af8a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
 			"name": "Place a book order",
 			"item": [
+				{
+					"name": "Place a book order - using valid book ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7246a04d-784d-4dd3-90da-abb4615fca4e",
+								"exec": [
+									"pm.test(\"Status Code is 201\", function (){\r",
+									"    pm.response.to.have.status(201)\r",
+									"})\r",
+									"pm.test(\"Status has string Created\", function (){\r",
+									"    pm.response.to.have.status(\"Created\")\r",
+									"})\r",
+									"\r",
+									"pm.collectionVariables.set(\"orderID\", JsonData.orderId)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "8fc99128-6ddc-4316-b439-4f3d3e13241f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "3423082822650c4b585351ba6ab212700293fd214ac10dbe3aa0d9244cc5e83d"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookId\": \"{{ID}}\",\r\n  \"customerName\": \"Minnie\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://simple-books-api.glitch.me/orders",
+							"protocol": "https",
+							"host": [
+								"simple-books-api",
+								"glitch",
+								"me"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place a book order - using invalid book ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aac5daad-7994-4fe1-97d6-c9e51aac6b57",
+								"exec": [
+									"pm.test(\"Status Code is 400\", function (){\r",
+									"    pm.response.to.have.status(400)\r",
+									"})\r",
+									"pm.test(\"Status has string Bad Request\", function (){\r",
+									"    pm.response.to.have.status(\"Bad Request\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "19be0045-1fbe-4902-beee-b3c7ce6002a5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "3423082822650c4b585351ba6ab212700293fd214ac10dbe3aa0d9244cc5e83d"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://simple-books-api.glitch.me/orders?id=6a",
+							"protocol": "https",
+							"host": [
+								"simple-books-api",
+								"glitch",
+								"me"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "6a"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Place a book order - using no book ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a4e17fc5-744b-4392-9008-d417518c578b",
+								"exec": [
+									"pm.test(\"Status Code is 400\", function (){\r",
+									"    pm.response.to.have.status(400)\r",
+									"})\r",
+									"pm.test(\"Status has string Bad Request\", function (){\r",
+									"    pm.response.to.have.status(\"Bad Request\")\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "7b17f301-c39b-4d1f-9a02-25a50fc8f3ff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "3423082822650c4b585351ba6ab212700293fd214ac10dbe3aa0d9244cc5e83d"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://simple-books-api.glitch.me/orders?id=",
+							"protocol": "https",
+							"host": [
+								"simple-books-api",
+								"glitch",
+								"me"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Register an API Client",
 					"event": [
@@ -352,16 +570,13 @@
 									"pm.test(\"Status code name has string Created\", function () {\r",
 									"    pm.response.to.have.status(\"Created\");\r",
 									"});\r",
-									"const response = pm.response.json();\r",
-									"pm.environment.set(\"bearerToken\", response.accessToken);\r",
-									"\r",
 									""
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "2083ecd9-0240-4f9b-95f2-60298cd34039",
+					"id": "aca7327a-d457-4d0e-8ed4-fd9cd1290621",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -370,7 +585,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n   \"clientName\": \"minnie51t2\",\n   \"clientEmail\": \"minnies51t2@mailinator.com\"\n}",
+							"raw": "{\n   \"clientName\": \"minnie51t5\",\n   \"clientEmail\": \"minnies52t2@mailinator.com\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -380,206 +595,34 @@
 						"url": "https://simple-books-api.glitch.me/api-clients/"
 					},
 					"response": []
-				},
-				{
-					"name": "Place a book order - using invalid Token",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a17a0bc1-918f-44f2-9c5f-c31c2f03217e",
-								"exec": [
-									"const Response = pm.response.json();\r",
-									"\r",
-									"console.log(Response.orderId);\r",
-									"pm.environment.set(\"OrderId\", Response.orderId);\r",
-									"\r",
-									"pm.test(\"Status code is 401\", function () {\r",
-									"    pm.response.to.have.status(401);\r",
-									"});\r",
-									"pm.test(\"Status code name has string called 'Unauthorised\", function () {\r",
-									"    pm.response.to.have.status(\"Unauthorized\");\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "94d5d054-dfc2-43fa-9be2-a82b1eb5a3e8",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"followAuthorizationHeader": false
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "345r6tyuu8"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"bookId\": {{bookId}},\n  \"customerName\": \"Minnie\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/orders"
-					},
-					"response": []
-				},
-				{
-					"name": "Place a book order - using valid book ID Copy",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "a17a0bc1-918f-44f2-9c5f-c31c2f03217e",
-								"exec": [
-									"const Response = pm.response.json();\r",
-									"\r",
-									"console.log(Response.orderId);\r",
-									"pm.environment.set(\"OrderId\", Response.orderId);\r",
-									"\r",
-									"pm.test(\"Status code is 201\", function () {\r",
-									"    pm.response.to.have.status(201);\r",
-									"});\r",
-									"pm.test(\"Status code name has string called Created\", function () {\r",
-									"    pm.response.to.have.status(\"Created\");\r",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "5b75ea68-5018-4fc9-9b89-7458346ed532",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true,
-						"followAuthorizationHeader": false
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{bearerToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"bookId\": {{bookId}},\n  \"customerName\": \"Minnie\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/orders"
-					},
-					"response": []
-				},
-				{
-					"name": "Place a book order - using invalid book ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "51eb79d3-b84a-473b-b401-08088216d59e",
-								"exec": [
-									"pm.test(\"Status code is 400\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"Bad Request\");\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "4241317d-b0dc-4e2e-93d8-9feba6971e55",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{bearerToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"bookId\": 150,\n  \"customerName\": \"Minnie\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/orders"
-					},
-					"response": []
-				},
-				{
-					"name": "Place a book order - using no book ID",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "dedf25ca-ddde-4907-b90c-8e495bd6baca",
-								"exec": [
-									"pm.test(\"Status code is 400\", function () {\r",
-									"    pm.response.to.have.status(400);\r",
-									"});\r",
-									"pm.test(\"Status code name has string of 'Bad Request'\", function () {\r",
-									"    pm.response.to.have.status(\"Bad Request\");\r",
-									"});\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "b088a738-a6d7-47db-9a43-6b560ba3ff8f",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": {
-								"token": "{{bearerToken}}"
-							}
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"bookId\": \"\",\n  \"customerName\": \"Minnie\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": "{{base_url}}/orders"
-					},
-					"response": []
 				}
 			],
-			"id": "67ed3f99-0d25-49c0-a5d9-7b16f4d57b81"
+			"id": "03688c9a-0274-44f2-9815-fdaba47d9a69",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bb40a4b2-f626-472b-bd9c-498f5c3fc938",
+						"type": "text/javascript",
+						"exec": [
+							"postman.setNextRequest(null)"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2ff6d33e-dc5a-4491-b890-1804740b91a1",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		},
 		{
-			"name": "Get all orders",
+			"name": "Get an order",
 			"item": [
 				{
 					"name": "Get all orders",
@@ -587,20 +630,20 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3621b92e-efcd-4afa-8869-aa6a08ff1fd1",
+								"id": "646fcb9e-ea4d-4e0d-a512-6032b5a5029e",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});"
+									"pm.test(\"Status Code is 200\", function (){\r",
+									"    pm.response.to.have.status(200)\r",
+									"})\r",
+									"pm.test(\"Status has string OK\", function (){\r",
+									"    pm.response.to.have.status(\"OK\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "ac44cfd5-490c-4f2f-9fef-2b3a833169de",
+					"id": "abeac885-3784-46d4-9241-e6ecb9d99707",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -608,7 +651,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{bearerToken}}"
+								"token": "3423082822650c4b585351ba6ab212700293fd214ac10dbe3aa0d9244cc5e83d"
 							}
 						},
 						"method": "GET",
@@ -622,42 +665,48 @@
 								}
 							}
 						},
-						"url": "{{base_url}}/orders"
+						"url": {
+							"raw": "https://simple-books-api.glitch.me/orders",
+							"protocol": "https",
+							"host": [
+								"simple-books-api",
+								"glitch",
+								"me"
+							],
+							"path": [
+								"orders"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
 					},
 					"response": []
-				}
-			],
-			"id": "6c038a90-c1db-488c-b383-953405b6263f"
-		},
-		{
-			"name": "Get an order",
-			"item": [
+				},
 				{
 					"name": "Get an order - using a valid order number",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "cf42c512-0b10-4fd2-b33a-b090720ca245",
+								"id": "bf25539f-f924-4614-8c53-65d75ce11cd8",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
+									"pm.test(\"Status Code is 200\", function (){\r",
 									"    pm.response.to.have.status(200)\r",
 									"})\r",
-									"\r",
-									"pm.test(\"Status code name has string (OK)\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});\r",
-									"var jsonData = pm.response.json();\r",
-									"pm.test(\"Response should contain customer name = Minnie\", function () {\r",
-									"    pm.expect(jsonData.customerName).to.include(\"Minnie\");\r",
-									"});\r",
-									""
+									"pm.test(\"Status has string OK\", function (){\r",
+									"    pm.response.to.have.status(\"OK\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "4f50af27-22dd-4df9-bbf3-2512a7766672",
+					"id": "9303d567-6ef1-4527-8cd7-6596a2e8a403",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -665,14 +714,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{bearerToken}}"
+								"token": "4ffca71810c563450a6bf01d67e1ffd6925b9e0393b721fc6e26ed0ee39d54c5"
 							}
 						},
 						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"customerName\": \"Minnie\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -680,9 +729,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/orders/:orderId",
+							"raw": "https://simple-books-api.glitch.me/orders/:orderId",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"simple-books-api",
+								"glitch",
+								"me"
 							],
 							"path": [
 								"orders",
@@ -690,8 +742,9 @@
 							],
 							"variable": [
 								{
+									"id": "0dc3db82-b1b8-47d0-80ef-beb4b44c6a02",
 									"key": "orderId",
-									"value": "{{OrderId}}"
+									"value": ""
 								}
 							]
 						}
@@ -704,20 +757,20 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d7cc6831-e22a-480d-b4e4-0041756f6b62",
+								"id": "598c7e3b-4ae0-437c-92e0-c7f9fec5ea59",
 								"exec": [
-									"pm.test(\"Status code is 404\", function () {\r",
-									"    pm.response.to.have.status(404);\r",
-									"});\r",
-									"pm.test(\"Status code name has string 'Not Found'\", function () {\r",
-									"    pm.response.to.have.status(\"Not Found\");\r",
-									"});"
+									"pm.test(\"Status Code is 404\", function (){\r",
+									"    pm.response.to.have.status(404)\r",
+									"})\r",
+									"pm.test(\"Status has string Not Found\", function (){\r",
+									"    pm.response.to.have.status(\"Not Found\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "c29a3e4b-7d31-41ca-8d61-962b698f0b4c",
+					"id": "39c5709f-9083-4eee-8393-1f4d96f763c5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -725,14 +778,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{bearerToken}}"
+								"token": "3423082822650c4b585351ba6ab212700293fd214ac10dbe3aa0d9244cc5e83d"
 							}
 						},
 						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"customerName\": \"Minnie\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -740,9 +793,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/orders/:orderId",
+							"raw": "https://simple-books-api.glitch.me/orders/:orderId",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"simple-books-api",
+								"glitch",
+								"me"
 							],
 							"path": [
 								"orders",
@@ -750,9 +806,8 @@
 							],
 							"variable": [
 								{
-									"id": "aafd9dac-30b3-414e-a28a-1a97e8fa69c5",
 									"key": "orderId",
-									"value": "adeyi"
+									"value": "234rfthn v4888"
 								}
 							]
 						}
@@ -765,20 +820,20 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b698bd33-043f-4240-99a0-f3645f56e782",
+								"id": "1728fbfa-595b-490c-a9f8-2faaa3a36def",
 								"exec": [
-									"pm.test(\"Status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"pm.test(\"Status code name has string\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
-									"});"
+									"pm.test(\"Status Code is 404\", function (){\r",
+									"    pm.response.to.have.status(404)\r",
+									"})\r",
+									"pm.test(\"Status has string Not Found\", function (){\r",
+									"    pm.response.to.have.status(\"Not Found\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "5e72f852-c6fb-41be-8666-efb4803a3c9f",
+					"id": "ba749be9-5d68-44f7-aa9a-e51d994922eb",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -786,14 +841,14 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{bearerToken}}"
+								"token": "3423082822650c4b585351ba6ab212700293fd214ac10dbe3aa0d9244cc5e83d"
 							}
 						},
 						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"customerName\": \"John\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -801,9 +856,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/orders/:orderId",
+							"raw": "https://simple-books-api.glitch.me/orders/:orderId",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"simple-books-api",
+								"glitch",
+								"me"
 							],
 							"path": [
 								"orders",
@@ -811,6 +869,7 @@
 							],
 							"variable": [
 								{
+									"id": "c27a64d7-82d3-4082-83a3-68cb348847aa",
 									"key": "orderId",
 									"value": ""
 								}
@@ -820,7 +879,7 @@
 					"response": []
 				}
 			],
-			"id": "4939cfbc-02c8-4ee0-accf-44c3ea93b162"
+			"id": "38bcbb68-b27b-4841-a5dc-7b60f8730d01"
 		},
 		{
 			"name": "Delete an order",
@@ -831,21 +890,20 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7fb38cb3-94e0-45db-9767-0e4c78ede5b1",
+								"id": "7b3d9a90-9000-4ee0-ab1b-594b977b441d",
 								"exec": [
-									"pm.test(\"Status code is 204\", function () {\r",
-									"    pm.response.to.have.status(204);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string OK\", function () {\r",
-									"    pm.response.to.have.status(\"No Content\");\r",
-									"});"
+									"pm.test(\"Status Code is 204\", function (){\r",
+									"    pm.response.to.have.status(204)\r",
+									"})\r",
+									"pm.test(\"Status has string No Content\", function (){\r",
+									"    pm.response.to.have.status(\"No Content\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "e45e609e-ede5-4043-927f-19c9cb3a074c",
+					"id": "c2da5c89-962e-46da-a3c0-c53b00a93007",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -853,7 +911,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{bearerToken}}"
+								"token": "3423082822650c4b585351ba6ab212700293fd214ac10dbe3aa0d9244cc5e83d"
 							}
 						},
 						"method": "DELETE",
@@ -868,9 +926,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/orders/:orderId",
+							"raw": "https://simple-books-api.glitch.me/orders/:orderId",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"simple-books-api",
+								"glitch",
+								"me"
 							],
 							"path": [
 								"orders",
@@ -879,7 +940,7 @@
 							"variable": [
 								{
 									"key": "orderId",
-									"value": "{{OrderId}}"
+									"value": "{{ID}}"
 								}
 							]
 						}
@@ -892,21 +953,20 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "75d1ce7a-b6b4-4cb4-96f7-b26f07ba7e2c",
+								"id": "f07ef2e4-3f96-43e4-8a75-94051f07e963",
 								"exec": [
-									"pm.test(\"Status code is 404\", function () {\r",
-									"    pm.response.to.have.status(404);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string of 'Bad Request'\", function () {\r",
-									"    pm.response.to.have.status(\"Not Found\");\r",
-									"});"
+									"pm.test(\"Status Code is 204\", function (){\r",
+									"    pm.response.to.have.status(204)\r",
+									"})\r",
+									"pm.test(\"Status has string No Content\", function (){\r",
+									"    pm.response.to.have.status(\"No Content\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "b9aff0ef-84e4-4a26-86ea-101482cc82b4",
+					"id": "a05ad8db-ec75-4c8a-847f-1027349e7161",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -914,7 +974,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{bearerToken}}"
+								"token": "3423082822650c4b585351ba6ab212700293fd214ac10dbe3aa0d9244cc5e83d"
 							}
 						},
 						"method": "DELETE",
@@ -929,9 +989,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/orders/:orderId",
+							"raw": "https://simple-books-api.glitch.me/orders/:orderId",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"simple-books-api",
+								"glitch",
+								"me"
 							],
 							"path": [
 								"orders",
@@ -939,9 +1002,8 @@
 							],
 							"variable": [
 								{
-									"id": "421a8db2-5b22-46a7-8c36-5f1060043778",
 									"key": "orderId",
-									"value": "adeyi"
+									"value": "wergtggdtuuhv sbuu"
 								}
 							]
 						}
@@ -954,21 +1016,20 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f00a14a7-c4bb-4b10-8fe6-03fe57eeae66",
+								"id": "928ccdb8-fd9f-4706-9cf4-09b150be1261",
 								"exec": [
-									"pm.test(\"Status code is 404\", function () {\r",
-									"    pm.response.to.have.status(404);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Status code name has string of 'Not Found'\", function () {\r",
-									"    pm.response.to.have.status(\"Not Found\");\r",
-									"});"
+									"pm.test(\"Status Code is 404\", function (){\r",
+									"    pm.response.to.have.status(404)\r",
+									"})\r",
+									"pm.test(\"Status has string Not Found\", function (){\r",
+									"    pm.response.to.have.status(\"Not Found\")\r",
+									"})"
 								],
 								"type": "text/javascript"
 							}
 						}
 					],
-					"id": "99ab7fcf-4fc4-43e3-80a7-2a1642717ae0",
+					"id": "71b696a6-626b-4d4d-a9d4-03cb89de5c71",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -976,7 +1037,7 @@
 						"auth": {
 							"type": "bearer",
 							"bearer": {
-								"token": "{{bearerToken}}"
+								"token": "3423082822650c4b585351ba6ab212700293fd214ac10dbe3aa0d9244cc5e83d"
 							}
 						},
 						"method": "DELETE",
@@ -991,9 +1052,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}/orders/:orderId",
+							"raw": "https://simple-books-api.glitch.me/orders/:orderId",
+							"protocol": "https",
 							"host": [
-								"{{base_url}}"
+								"simple-books-api",
+								"glitch",
+								"me"
 							],
 							"path": [
 								"orders",
@@ -1001,7 +1065,7 @@
 							],
 							"variable": [
 								{
-									"id": "1062ca18-25d0-4cf6-8685-2c9c91ac05bb",
+									"id": "87f1bf9b-2ecf-4a42-bed3-a9335439da0e",
 									"key": "orderId",
 									"value": ""
 								}
@@ -1011,20 +1075,14 @@
 					"response": []
 				}
 			],
-			"id": "005e558c-a8b1-47e3-974c-f915a9be55c1"
+			"id": "58197040-9ef7-4c1a-a065-dd50dfc0c781"
 		}
 	],
-	"auth": {
-		"type": "bearer",
-		"bearer": {
-			"token": ""
-		}
-	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "22a0b61a-63b6-49f8-adf1-5e18fd920e75",
+				"id": "658c8742-298a-45a6-b1a2-5c8bdb7facf7",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1034,7 +1092,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a0a90da3-65a7-456e-a97a-c62a578f993f",
+				"id": "42969281-1d00-40e1-bf6a-a8a2042fcd4e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1044,8 +1102,12 @@
 	],
 	"variable": [
 		{
+			"key": "ID",
+			"value": ""
+		},
+		{
 			"key": "baseUrl",
-			"value": "www.google.come",
+			"value": "https://simple-books-api.glitch.me",
 			"type": "string"
 		}
 	]
