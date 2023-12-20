@@ -18,15 +18,12 @@ jobs:
           npm install -g newman newman-reporter-allure
           echo "Newman and newman-reporter-allure installed."
 
-      - name: Run ADMIN And Customer - API tests
+      - name: Run API tests
         if: always()
         continue-on-error: true
         run: |
-           newman run Project/SendBlueIV_Collection.json -e TAS_postman_environment.json --reporters cli,allure
-           echo "Admin API Postman tests run."
-
-           newman run Postman-Collections/Retail-API-Bank78.json -e ADMIN_API_COLLECTION/BANK78_ENV_postman_environment.json --reporters cli,allure
-           echo "Customer Postman tests run."
+           newman run Project/SendBlueIV_Collection.json -e Project/TAS_postman_environment.json --reporters cli,allure
+           echo "API Postman tests run."
           
       - name: Get  Allure history
         uses: actions/checkout@v2
