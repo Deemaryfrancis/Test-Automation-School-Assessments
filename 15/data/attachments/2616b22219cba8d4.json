@@ -1,0 +1,19 @@
+{
+    "Date": "Sat, 23 Dec 2023 05:23:13 GMT",
+    "Content-Type": "application/json",
+    "Content-Length": "50",
+    "Connection": "keep-alive",
+    "sib-request-id": "d233491c-dcd3-94ac-a33f-a86d0faeade0",
+    "access-control-allow-origin": "*",
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "*",
+    "access-control-allow-methods": "PUT, POST, GET, DELETE, PATCH, OPTIONS",
+    "x-envoy-upstream-service-time": "0",
+    "x-sib-server": "BREVO-srv-pr-online-rancher-worker-81",
+    "x-content-type-options": "nosniff",
+    "x-xss-protection": "1",
+    "CF-Cache-Status": "DYNAMIC",
+    "Set-Cookie": "__cf_bm=6XLoXpAMbSqeN_Mm6pHhO6CdWUnIw2B3v4q_kVl2Iqc-1703308993-1-AYSnvDh7uBcopmk8G4qHcb2jUveB7wV4xPbEIJL5MRByq2aeYqC0H+FG3qeClDHMomMP7mOB9IurYNjWeXsAZIA=; path=/; expires=Sat, 23-Dec-23 05:53:13 GMT; domain=.sendinblue.com; HttpOnly; Secure; SameSite=None",
+    "Server": "cloudflare",
+    "CF-RAY": "839e2bd81bd2e25c-ORD"
+}
