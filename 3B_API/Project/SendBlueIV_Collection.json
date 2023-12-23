@@ -32154,7 +32154,7 @@
 	"auth": {
 		"type": "apikey",
 		"apikey": {
-			"key": "{{api-key}}",
+			"key": "api-key",
 			"in": "header",
 			"value": "{{api-key}}"
 		}
@@ -32163,7 +32163,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "51b128e4-a0be-48ad-93db-4fd620ee3f4b",
+				"id": "5ba53fd3-4873-4d22-912c-1de1573f4391",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -32173,7 +32173,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f6950d6f-7cd9-4789-bf98-0f77b74b681e",
+				"id": "d2538a4f-10cd-423b-b86c-27df1b73f311",
 				"type": "text/javascript",
 				"exec": [
 					""
