@@ -32154,16 +32154,16 @@
 	"auth": {
 		"type": "apikey",
 		"apikey": {
+			"key": "{{api-key}}",
 			"in": "header",
-			"value": "{{api-key}}",
-			"key": "api-key"
+			"value": "{{api-key}}"
 		}
 	},
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5a75e6ff-aa96-4550-904e-1d536f75b29e",
+				"id": "51b128e4-a0be-48ad-93db-4fd620ee3f4b",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -32173,7 +32173,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3aaaeb15-08d7-43e7-a6cf-03a6f08a5e78",
+				"id": "f6950d6f-7cd9-4789-bf98-0f77b74b681e",
 				"type": "text/javascript",
 				"exec": [
 					""
