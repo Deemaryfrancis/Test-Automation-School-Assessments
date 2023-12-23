@@ -32163,7 +32163,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "9bcb08a5-a46b-4c8a-95bf-bcdf88aab238",
+				"id": "f3858a83-05cd-44c3-a429-ab39f26cbbf6",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -32173,7 +32173,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a9cb7ffb-043e-4168-8336-bc07a62e7e9b",
+				"id": "eb49b0ee-a3d6-4185-864a-f16649faa95c",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -32184,11 +32184,11 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "https://api.brevo.com/v3/"
+			"value": "https://api.brevo.com/v3"
 		},
 		{
 			"key": "api-key",
-			"value": "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",
+			"value": "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",
 			"type": "string"
 		},
 		{
