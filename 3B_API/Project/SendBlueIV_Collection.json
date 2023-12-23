@@ -32163,7 +32163,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c968c2a4-306e-4bde-844a-98d4fea67ff8",
+				"id": "9bcb08a5-a46b-4c8a-95bf-bcdf88aab238",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -32173,7 +32173,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d29d3f6f-874c-42d0-82d1-1f7dc3573e43",
+				"id": "a9cb7ffb-043e-4168-8336-bc07a62e7e9b",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -32183,8 +32183,18 @@
 	],
 	"variable": [
 		{
+			"key": "baseUrl",
+			"value": "https://api.brevo.com/v3/"
+		},
+		{
+			"key": "api-key",
+			"value": "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",
+			"type": "string"
+		},
+		{
 			"key": "messageId",
-			"value": ""
+			"value": "",
+			"type": "string"
 		},
 		{
 			"key": "recieverEmail",
